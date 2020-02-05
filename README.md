@@ -1,3 +1,8 @@
+# Docker Usage
+
+```
+docker run -it --name ppgnet --shm-size 16g --gpus 4 --cpus 16 --memory 32g -v {dataset_local_path} davinnovation/ppgnet:0.3
+```
 # PPGNet: Learning Point-Pair Graph for Line Segment Detection
 
 PyTorch implementation of our CVPR 2019 paper:

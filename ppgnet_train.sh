@@ -4,7 +4,7 @@ python main.py \
 --dim-embedding 256 --junction-pooling-threshold 0.2 \
 --junc-pooling-size 64 --attention-sigma 1.5 --block-inference-size 128 \
 --data-root indoorDist --junc-sigma 3 \
---batch-size 6 --gpus 0,1 --num-workers 0 --resume-epoch latest \
+--batch-size 6 --gpus 0,1,2,3 --num-workers 10 --resume-epoch latest \
 --is-train-junc True --is-train-adj True \
 --vis-junc-th 0.1 --vis-line-th 0.1 \
     - train --end-epoch 9 --solver SGD --lr 0.2 --weight-decay 5e-4 --lambda-heatmap 1. --lambda-adj 5. \
