@@ -1,7 +1,7 @@
 # Docker Usage
 
 ```
-docker run -it --name ppgnet --shm-size 16g --gpus 4 --cpus 16 --memory 32g -v {dataset_local_path} davinnovation/ppgnet:0.3
+docker run -it --name ppgnet --shm-size 16g --gpus 4 --cpus 16 --memory 32g -v {dataset_local_path}:/mnt/dataset davinnovation/ppgnet:cuda92_torch04
 ```
 # PPGNet: Learning Point-Pair Graph for Line Segment Detection
 

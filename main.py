@@ -231,7 +231,7 @@ class LSDTrainer(object):
             model.zero_grad()
             loss_adj = loss_adj.mean()
             loss_hm = loss_hm.mean()
-            loss = (loss_hm.item() if self.is_train_junc else 0) + (loss_adj.item() if self.is_train_adj else 0)
+            loss = (loss_hm if self.is_train_junc else 0) + (loss_adj if self.is_train_adj else 0)
             loss.backward()
             solver.step()
 
@@ -282,6 +282,14 @@ class LSDTrainer(object):
             print(info, flush=True)
             # measure elapsed time
             tic = time.time()
+
+            if self.is_cuda: torch.cuda.empty_cache()
+
+            del img, heatmap_gt, adj_mtx_gt, junctions_gt, \
+                junc_pred, heatmap_pred, adj_mtx_pred, loss_hm, loss_adj, loss, \
+                vis_heatmap_gt, vis_heatmap_pred, info
+
+
 
     def _vis_train(self, epoch, i, len_loader, img, heatmap, adj_mtx, junctions_gt, adj_mtx_gt):
         junctions_gt = np.int32(junctions_gt)
